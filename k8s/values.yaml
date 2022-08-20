@@ -1,0 +1,35 @@
+appserver:
+  name: appserver
+  image:
+    name: appserver
+    tag: v1
+    exposedPorts: 3000
+  replicas: 4
+
+  env:
+    NODE_ENV: production
+
+  service: 
+    type: ClusterIP
+
+nginx:
+  name: nginx
+  image:
+    name: app-nginx
+    tag: v1
+    exposedPorts: 80
+  replicas: 1
+
+  service:
+    type: LoadBalancer
+
+userservice:
+  name: userservice
+  image:
+    name: userservice
+    tag: v1
+    exposedPorts: 400
+  replicas: 2
+
+  service:
+    type: ClusterIP

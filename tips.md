@@ -15,3 +15,15 @@ docker build . -f nginx/Dockerfile -t app-nginx:v1
 ```bash
 kubectl apply -f <deployment or service name>
 ```
+
+### Dry run Helm 
+
+```bash
+helm install ./k8s --dry-run --generate-name
+```
+
+### Install Helm 
+
+```bash
+helm install ./k8s --generate-name
+```
