@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-helm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:app":"node ./app/server.js",
+    "start:userservice":"node ./aoo/user-service/server.js",
+    "start:all": "node ./app/server.js && node ./app/user-service/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.2.10"
+  }
+}
