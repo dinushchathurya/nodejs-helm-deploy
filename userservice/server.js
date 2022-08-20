@@ -9,6 +9,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+app.get('/', (req, res) => {
+    return res.send('Hello User Service!');
+});
+
 app.get('/v1/users', (req, res) => {
     const users =({
         data: [

@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const fetch = require('node-fetch');
@@ -16,12 +16,16 @@ app.get('/ping', (req, res) => {
 });
 
 app.get('/api/users', async(req, res) => {
-    const response = await fetch(`http://localhsot:4000/v1/users`);
-    const data = await response.json();
+    try {
+        const response = await fetch('http://localhsot:4000/v1/users');
+        const data = await response.json();
 
-    return res.json({
-        data
-    })
+        return res.json({
+            data
+        })
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 app.get('/', (req, res) => {

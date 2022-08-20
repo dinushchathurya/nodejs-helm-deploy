@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:app":"node ./app/server.js",
-    "start:userservice":"node ./aoo/user-service/server.js",
-    "start:all": "node ./app/server.js && node ./app/user-service/server.js"
+    "start:app": "node ./app/server.js",
+    "start:userservice": "node ./userservice/server.js",
+    "start:all": "npm run start:app && npm run start:userservice"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,6 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "morgan": "^1.10.0",
-    "node-fetch": "^3.2.10"
+    "node-fetch": "^2.6.1"
   }
 }
