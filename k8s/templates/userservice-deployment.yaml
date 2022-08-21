@@ -1,28 +1,23 @@
-apiVesrion: app/v1
+apiVersion: apps/v1
 kind: Deployment
-
-metadta:
+metadata:
   name: {{ .Values.userservice.name }}-deployment
-
-spec: 
+spec:
   replicas: {{ .Values.userservice.replicas }}
-
   selector:
     matchLabels:
-      app: {{ .Values.userservice.name }}
-
+      server: {{ .Values.userservice.name }}
   template:
     metadata:
       labels:
         server: {{ .Values.userservice.name }}
-    spec: 
-      container: 
+    spec:
+      containers:
         - name: {{ .Values.userservice.name }}
-          image: {{ .Values.userservice.image.name }}:{{ .Values.userservice.image.tag }}
+          image: {{ .Values.userservice.image.name}}:{{ .Values.userservice.image.tag }}
           imagePullPolicy: Never
           ports:
-            - containerPort: {{ .Values.userservice.image.exposedPort }}
-          env: 
+            - containerPort: {{ .Values.userservice.image.port }}
+          env:
             - name: NODE_ENV
               value: production
-
