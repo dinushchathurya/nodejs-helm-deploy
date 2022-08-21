@@ -1,13 +1,11 @@
 apiVersion: v1
 kind: Service
-
 metadata:
-  name: userservice-cluster-service
-
+  name: user-service-clusterip-service
 spec:
   type: ClusterIP
-  selector:
-    app: userservice
   ports:
     - port: 80
       targetPort: 4000
+  selector:
+    server: userservice

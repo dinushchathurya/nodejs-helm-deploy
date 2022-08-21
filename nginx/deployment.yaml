@@ -1,25 +1,20 @@
-apiVesrion: app/v1
+apiVersion: apps/v1
 kind: Deployment
-
-metadta:
-  name: nginx-deployment
-
-spec: 
+metadata:
+  name: app-nginx-deployment
+spec:
   replicas: 1
-
   selector:
     matchLabels:
-      app: nginx
-
+      server: app-nginx
   template:
     metadata:
       labels:
-        server: nginx
-    spec: 
-      container: 
-        - name: nginx
-          image: app-nginx:v1
+        server: app-nginx
+    spec:
+      containers:
+        - name: app-nginx
+          image: app-nginx:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 80
-

@@ -1,28 +1,23 @@
-apiVesrion: app/v1
+apiVersion: apps/v1
 kind: Deployment
-
-metadta:
-  name: appserver-deployment
-
-spec: 
+metadata:
+  name: app-server-deployment
+spec:
   replicas: 3
-
   selector:
     matchLabels:
-      app: appserver
-
+      server: appserver
   template:
     metadata:
       labels:
         server: appserver
-    spec: 
-      container: 
+    spec:
+      containers:
         - name: appserver
-          image: appserver:v1
+          image: appserver:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
-          env: 
+          env:
             - name: NODE_ENV
               value: production
-

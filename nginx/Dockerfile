@@ -2,7 +2,7 @@ FROM nginx:alpine
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 
-COPY maintenance.html /usr/share/nginx/html/
+COPY nginx/maintenance.html /usr/share/nginx/html/
 
 EXPOSE 80
 

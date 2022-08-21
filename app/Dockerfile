@@ -1,11 +1,13 @@
-FROM node:16
+FROM node:14.15.0-alpine3.10
 
 WORKDIR /usr/src/app
 
-COPY app/server.js server.js
+COPY package.json package.json
 
 COPY node_modules node_modules
 
+COPY app/server.js app/server.js
+
 EXPOSE 3000
 
-CMD [ "node", "server.js" ]
+CMD ["npm", "run", "start:app"]
